@@ -31,18 +31,22 @@ const VerifyPage = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Verify Name in Merkle Tree</h1>
-      <p> Merkle root: f83bbd9544e36b188a22b72b9653723a8485b1ce6f0138ff5025afbdae1092db </p>
-      <form className={styles.form} onSubmit={handleVerify}>
+      
+      <p> List of <a href="https://github.com/edwardtay/merkle-tree-blacklist/blob/main/src/pages/niceList.json">blacklisted addresses by Circle (USDC)</a> as of May 2023
+ - <a href="https://etherscan.io/address/0x5db0115f3b72d19cea34dd697cf412ff86dc7e1b?method=Blacklist~0xf9f92be4">Reference</a> <br></br>
+ <br></br> Merkle tree constructed. Root: f83bbd9544e36b188a22b72b9653723a8485b1ce6f0138ff5025afbdae1092db </p>
+ <h1 className={styles.title}>Verify if address is in Merkle Tree</h1>
+ <p>e.g. of blacklisted address 0xb1c8094b234dce6e03f10a5b673c1d8c69739a00 </p>
+ <form className={styles.form} onSubmit={handleVerify}>
         <label className={styles.label}>
-          Name:
+          Address:
           <input className={styles.input} type="text" value={inputName} onChange={e => setInputName(e.target.value)} />
         </label>
         <button className={styles.button} type="submit">Verify</button>
       </form>
       {nameResult && (
         <div className={styles.result}>
-          <p className={styles.resultLabel}>Name:</p>
+          <p className={styles.resultLabel}>Address:</p>
           <p className={styles.resultValue}>{nameResult}</p>
         </div>
       )}
